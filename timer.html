@@ -28,18 +28,20 @@
             // 이미 등록된 타이머가 있으면, 무시. 종료
             if (timerId !== null) return;
             
+            // 버튼 비활성화 코드
             startBtn.disabled = true;
             timeEl.textContent = timeLeft;
             // 1초마다 timeleft를 1초씩 깎는다
             timerId = setInterval(() => { 
                 timeLeft --;
                 
+                //
                 if (timeLeft === 0) {
-                    // timeLeft>=0인 경우, 타이머 중지
+                    // timeLeft=0인 경우, 타이머 중지
                     timeEl.textContent = "타이머 종료!"
                     // 타이머 즉시 멈춤
                     clearInterval(timerId);
-                    timeLeft = 10; // 타이머 중지되는 순가 초기화
+                    timeLeft = 10; // 타이머 중지되는 순간 초기화
                     timerId = null; // 다시 초기화 필요
                     startBtn.disabled = false;
 
